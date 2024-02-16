@@ -25,7 +25,7 @@ let notes = [
     title: 'Lifecycle',
     body: 'Dalam konteks React component, lifecycle merupakan kumpulan method yang menjadi siklus hidup mulai dari component dibuat (constructor), dicetak (render), pasca-cetak (componentDidMount), dan sebagainya. ',
     createdAt: '2022-04-14T04:27:34.572Z',
-    archived: false,
+    archived: true,
   },
   {
     id: 'notes-5',
