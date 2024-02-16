@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply bg-gradient-to-b from-white via-sky-500 to-white font-[Roboto]
+}
+
+#root {
+  @apply min-h-screen bg-gradient-to-b from-sky-500 via-white text-gray-800 to-sky-400 rounded-md flex flex-col gap-4 p-4 shadow-lg md:max-w-6xl md:mx-auto
+}
