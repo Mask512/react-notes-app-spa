@@ -1,10 +1,11 @@
 import { Link } from 'react-router-dom';
-import { IoIosAddCircleOutline } from 'react-icons/io';
+import Navigation from './Navigation';
+import PropTypes from 'prop-types';
 
-export default function Header() {
+export default function Header({ isAuthed, logout }) {
   return (
     <div className="flex justify-between items-center text-sky-800 mb-4">
-      <Link to="/" className='flex'>
+      <Link to="/" className="flex">
         <img
           src="/icon.png"
           alt="Icon image"
@@ -14,28 +15,12 @@ export default function Header() {
           Catatanku
         </h1>
       </Link>
-      <div className="flex gap-4">
-        <Link
-          to="/"
-          className="text-xs md:text-base px-2 bg-white text-center rounded-md sm:px-4 py-2 font-semibold flex items-center gap-2 hover:scale-105 transition duration-100 active:scale-95 hover:ring-2 hover:ring-sky-800"
-        >
-          Catatan Aktif
-        </Link>
-        <Link
-          to="/archived"
-          className="text-xs md:text-base px-2 bg-white text-center rounded-md sm:px-4 py-2 font-semibold flex items-center gap-2 hover:scale-105 transition duration-100 active:scale-95 hover:ring-2 hover:ring-sky-800"
-        >
-          Arsip Catatan
-        </Link>
-
-        <Link
-          to="/new-notes"
-          className="text-xs md:text-base px-2 bg-white text-center rounded-md sm:px-4 py-2 font-semibold flex items-center gap-2 hover:scale-105 transition duration-100 active:scale-95 hover:ring-2 hover:ring-sky-800"
-        >
-          <IoIosAddCircleOutline className="text-xl" />
-          Tambah Catatan
-        </Link>
-      </div>
+      {isAuthed ? <Navigation logout={logout} /> : ''}
     </div>
   );
 }
+
+Header.propTypes = {
+  isAuthed: PropTypes.bool.isRequired,
+  logout: PropTypes.func,
+};

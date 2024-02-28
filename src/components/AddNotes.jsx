@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { addNote } from '../data/data';
+import { addNote } from '../data/network-data';
 
 export default function AddNotes() {
   const navigate = useNavigate();
