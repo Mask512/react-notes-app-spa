@@ -55,12 +55,12 @@ export default function DetailNote() {
     return (
       <button
         type="button"
-        className="flex items-center gap-2 border-2 p-2 px-4 rounded text-sky-500 transition-all duration-300 group-hover:text-white  hover:text-green-700 hover:border-green-700"
+        className="flex items-center gap-2 border-2 p-2 px-4 rounded text-sky-500 transition-all duration-300 group-hover:text-white  hover:text-green-700 hover:border-green-700 "
         onClick={() => {
           archived ? handleActive(id) : handleArchive(id);
         }}
       >
-        <MdDriveFileMoveOutline />
+        <MdDriveFileMoveOutline className='text-2xl' />
         {archived ? 'Aktifkan' : 'Arsipkan'} Catatan
       </button>
     );
@@ -69,23 +69,23 @@ export default function DetailNote() {
   return (
     <section
       className="px-8 py-14 flex flex-col
-      gap-4 bg-white shadow rounded"
+      gap-4 bg-white shadow rounded dark:bg-gray-700"
     >
-      <h3 className="text-6xl font-bold text-gray-600">
+      <h3 className="text-4xl md:text-6xl font-bold text-gray-600">
         {title}{' '}
-        <span className="text-red-500">{archived ? '[ Arsip ]' : ''}</span>
+        <span className="text-red-500">{archived ? '[ Archived ]' : ''}</span>
       </h3>
       <p className="text-gray-400 italic group-hover:text-white">
         {changeDateFormat(createdAt)}
       </p>
-      <p className="text-4xl text-gray-600">{body}</p>
+      <p className="text-2xl md:text-4xl text-gray-600">{body}</p>
       <div className="flex gap-8 justify-end">
         <button
           type="button"
           className="flex items-center gap-2 border-2 p-2 px-4 rounded text-sky-500 transition-all duration-300 group-hover:text-white  hover:text-red-700 hover:border-red-700"
           onClick={() => handleDelete(id)}
         >
-          <MdDelete />
+          <MdDelete className='text-2xl' />
           Hapus Catatan
         </button>
 

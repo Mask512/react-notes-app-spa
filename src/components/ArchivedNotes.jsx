@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import NotesList from './NotesList';
 import SearchBar from './SearchBar';
@@ -8,8 +8,10 @@ import {
   deleteNote,
   unarchiveNote,
 } from '../data/network-data';
+import LocaleContext from '../context/localeContext';
 
 export default function ArchivedNotes() {
+  const { locale } = useContext(LocaleContext);
   const [isLoading, setLoading] = useState(true);
   const [notes, setNotes] = useState(null);
 
@@ -58,9 +60,9 @@ export default function ArchivedNotes() {
     return (
       <>
         <SearchBar onSearch={changeSearchParams} keyword={title} />
-        <div className="bg-white p-4 rounded">
+        <div className="bg-white p-4 rounded dark:bg-gray-700">
           <h3 className="text-2xl font-bold mb-4 text-gray-700 ">
-            Arsip Catatan
+          { locale === 'id' ? 'Arsip Catatan' : 'Archived Notes'} 
           </h3>
           <LoadingCards qty={5} />
         </div>
@@ -70,9 +72,9 @@ export default function ArchivedNotes() {
   return (
     <>
       <SearchBar onSearch={changeSearchParams} keyword={title} />
-      <div className="bg-white p-4 rounded">
+      <div className="bg-white p-4 rounded dark:bg-gray-700">
         <h3 className="text-2xl font-bold mb-4 text-gray-700 ">
-          Arsip Catatan
+        { locale === 'id' ? 'Arsip Catatan' : 'Archived Notes'} 
         </h3>
         <NotesList
           notes={filteredNotes()}

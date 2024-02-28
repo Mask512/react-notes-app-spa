@@ -1,11 +1,13 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect,  useContext } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import NotesList from './NotesList';
 import SearchBar from './SearchBar';
 import LoadingCards from './LoadingCards';
 import { getActiveNotes, deleteNote, archiveNote } from '../data/network-data';
+import LocaleContext from '../context/localeContext';
 
 export default function ActiveNotes() {
+  const { locale } = useContext(LocaleContext);
   const [isLoading, setLoading] = useState(true);
   const [notes, setNotes] = useState(null);
 
@@ -53,9 +55,9 @@ export default function ActiveNotes() {
   return (
     <>
       <SearchBar onSearch={changeSearchParams} keyword={title} />
-      <div className="bg-white p-4 rounded">
+      <div className="bg-white p-4 rounded dark:bg-gray-700">
         <h3 className="text-2xl font-bold mb-4 text-gray-700 ">
-          Catatan Aktif
+         { locale === 'id' ? 'Catatan Aktif' : 'Active Notes'} 
         </h3>
         {isLoading ? (
           <LoadingCards qty={5} />

@@ -2,8 +2,12 @@ import { Link } from 'react-router-dom';
 import useInput from '../utils/useInput';
 import PropTypes from 'prop-types';
 import { login } from '../data/network-data';
+import { useContext } from 'react';
+import LocaleContext from '../context/localeContext';
 
 export default function Login({ loginSuccess }) {
+  const { locale } = useContext(LocaleContext);
+
   const [email, onEmailChange] = useInput('');
   const [password, onPasswordChange] = useInput('');
 
@@ -23,7 +27,7 @@ export default function Login({ loginSuccess }) {
 
   return (
     <>
-      <div className="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8 ">
+      <div className="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8 dark:border rounded">
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
           <img
             className="mx-auto h-20 w-auto"
@@ -31,7 +35,7 @@ export default function Login({ loginSuccess }) {
             alt="icon image"
           />
           <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
-            Login ke akunmu
+            {locale === 'id' ? 'Login Ke Akunmu': 'Login to your account'}
           </h2>
         </div>
 

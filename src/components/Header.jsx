@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom';
 import Navigation from './Navigation';
 import PropTypes from 'prop-types';
+import ToggleDarkMode from './ToggleDarkMode';
+import ToggleLocale from './ToggleLocale';
 
 export default function Header({ isAuthed, logout }) {
   return (
@@ -16,6 +18,10 @@ export default function Header({ isAuthed, logout }) {
         </h1>
       </Link>
       {isAuthed ? <Navigation logout={logout} /> : ''}
+      <div className='flex gap-2'>
+      <ToggleLocale />
+      <ToggleDarkMode />
+      </div>
     </div>
   );
 }

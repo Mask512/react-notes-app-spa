@@ -1,7 +1,10 @@
+import { useContext } from 'react';
 import NoteCard from './NoteCard.jsx';
 import PropTypes from 'prop-types';
+import LocaleContext from '../context/localeContext.js';
 
 export default function NotesList({ notes, onDelete, onArchives, onActivate }) {
+  const { locale } = useContext(LocaleContext)
   if (notes.length) {
     return (
       <div className="flex gap-4 flex-wrap">
@@ -18,7 +21,7 @@ export default function NotesList({ notes, onDelete, onArchives, onActivate }) {
     );
   }
 
-  return <p className="italic font-semibold">Tidak ada Catatan Ditemukan</p>;
+  return <p className="italic font-semibold">{ locale === 'id' ? 'Tidak ada Catatan Ditemukan' : 'Notes Not found'} </p>;
 }
 
 NotesList.propTypes = {

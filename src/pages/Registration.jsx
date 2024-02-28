@@ -29,7 +29,7 @@ export default function Registration() {
 
   return (
     <>
-      <div className="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8 ">
+      <div className="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8 dark:border rounded ">
         <h2 className="sm:mx-auto sm:w-full sm:max-w-smmt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
           Registrasi Pengguna Baru
         </h2>
