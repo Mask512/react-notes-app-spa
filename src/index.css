@@ -7,7 +7,7 @@ body * {
 }
 
 body {
-  @apply bg-gradient-to-b from-white via-sky-500 to-white font-[Roboto] dark:bg-none dark:bg-gray-700 ;
+  @apply bg-gradient-to-b from-white via-sky-500 to-white font-[Roboto] dark:bg-none dark:bg-gray-700;
 }
 
 #root {
@@ -15,7 +15,8 @@ body {
   dark:bg-gradient-to-br dark:from-gray-600 dark:to-gray-800;
 }
 
-input {
+input,
+textarea {
   @apply dark:text-gray-50 dark:bg-gray-600;
 }
 

@@ -1,5 +1,5 @@
 import { useParams, useNavigate } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import changeDateFormat from '../utils/dateFormatter';
 import NotFound from '../pages/404';
 import LoadingCard from './LoadingCard';
@@ -10,12 +10,15 @@ import {
   unarchiveNote,
 } from '../data/network-data';
 import { MdDelete, MdDriveFileMoveOutline } from 'react-icons/md';
+import LocaleContext from '../context/localeContext';
 
 export default function DetailNote() {
   const navigate = useNavigate();
   const { id } = useParams();
   const [note, setNote] = useState(null);
   const [isLoading, setLoading] = useState(true);
+
+  const { locale } = useContext(LocaleContext);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -61,7 +64,7 @@ export default function DetailNote() {
         }}
       >
         <MdDriveFileMoveOutline className='text-2xl' />
-        {archived ? 'Aktifkan' : 'Arsipkan'} Catatan
+        {archived ? (locale === 'id' ? 'Aktifkan' : 'Activate')  : (locale === 'id' ? 'Arsipkan' : 'Archive')}
       </button>
     );
   };
@@ -86,7 +89,7 @@ export default function DetailNote() {
           onClick={() => handleDelete(id)}
         >
           <MdDelete className='text-2xl' />
-          Hapus Catatan
+          {locale === 'id' ? 'Hapus Catatan' : 'Delete Note' }
         </button>
 
         {moveButton()}
